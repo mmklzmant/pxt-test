@@ -12,10 +12,6 @@ enum ALLPIN {
 
 //% color="#AA278D"
 namespace xxx {
-
-    function getTemp(key: string) {
-
-    }
     //% block="say $word [xxx]" blockType="reporter"
     //% blockId="saySomething"
     //% xxx.shadow="dropdown" xxx.options="ALLPIN" xxx.defl="ALLPIN.Right"
@@ -48,12 +44,12 @@ namespace xxx {
         
     }
     //% block="turn on [choice]" blockType="reporter"
-    //% choice.shadow="number" choice.defl=60
+    //% choice.shadow="number" choice.defl=120
     export function turn5(parameter: any) {
         
     }
-	//% block="设置名字 [tt]" blockType="hat"
-    //% tt.shadow="number" tt.defl=100
+	//% block="set name [tt]" blockType="hat"
+    //% tt.shadow="number" tt.defl=190
     export function turn6(parameter: any) {
         
     }
