@@ -12,7 +12,8 @@
         "Obloq.ts",
         "Obloq.cpp",
         "_locales/zh-cn/Obloq-strings.json",
-        "_locales/zh-tw/Obloq-strings.json"
+        "_locales/zh-tw/Obloq-strings.json",
+		"icon.svg"
     ],
     "testFiles": [
         "test.ts",
