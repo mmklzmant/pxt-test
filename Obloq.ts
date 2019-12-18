@@ -48,7 +48,7 @@ namespace xxx {
     export function turn5(parameter: any) {
         
     }
-	//% block="set name [tt]" blockType="hat"
+	//% block="set name [tt]" blockType="command"
     //% tt.shadow="number" tt.defl=190
     export function turn6(parameter: any) {
         
