@@ -46,15 +46,6 @@ namespace xxx {
 	//% block="set name [tt]" blockType="hat"
     //% tt.shadow="number" tt.defl=190
     export function turn6(parameter: any) {
-		a = 2;
-        let buf = pins.createBuffer(2);
-        if (index == 0) {
-            buf[0] = 0x14;
-        }
-        if (index == 1) {
-            buf[0] = 0x15;
-        }
-        buf[1] = angle;
-        pins.i2cWriteBuffer(0x10, buf); 
+        console.log("xxxxxxxmmmm")
     }
 }
