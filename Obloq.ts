@@ -9,7 +9,7 @@ enum ALLPIN {
     Down
 }
 
-
+let a = 1;
 //% color="#AA278D" iconWidth=50 iconHeight=40
 namespace xxx {
     //% block="say $word [xxx]" blockType="reporter"
@@ -46,6 +46,7 @@ namespace xxx {
 	//% block="set name [tt]" blockType="hat"
     //% tt.shadow="number" tt.defl=190
     export function turn6(parameter: any) {
+		a = 2;
         let buf = pins.createBuffer(2);
         if (index == 0) {
             buf[0] = 0x14;
