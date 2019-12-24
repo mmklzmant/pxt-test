@@ -49,6 +49,8 @@ namespace xxx {
 	//% block="set name [tt]" blockType="hat"
     //% tt.shadow="number" tt.defl=190
     export function turn6(parameter: any) {
+		obj.a = "mm";
+		console.log("mmm", obj);
         console.log("xxxxxxxmmmm")
     }
 }
