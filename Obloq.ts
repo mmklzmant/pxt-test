@@ -52,6 +52,6 @@ namespace xxx {
 		obj.a = "mm";
 		console.log("mmm", obj);
         console.log("xxxxxxxmmmm");
-        generator.transTextForVar('你好呀');
+        console.log("trans==mm", generator.transTextForVar('你好呀'));
     }
 }
