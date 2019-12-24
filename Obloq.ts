@@ -10,35 +10,30 @@ enum ALLPIN {
 }
 
 
-//% color="#AA278D"
+//% color="#AA278D" iconWidth=50 iconHeight=40
 namespace xxx {
     //% block="say $word [xxx]" blockType="reporter"
-    //% blockId="saySomething"
     //% xxx.shadow="dropdown" xxx.options="ALLPIN" xxx.defl="ALLPIN.Right"
     export function say(parameter: any) {
 
     }
     //% block="say2 [xxx]" blockType="reporter"
-    //% blockId="saySomething2"
     //% xxx.shadow="dropdownRound" xxx.options="ALLPIN" xxx.defl="ALLPIN.Down"
     export function say2(parameter: any) {
 
     }
     //% block="set tempo mmkl [VALUE]" blockType="hat"
-    //% blockId="setTempo"
     //% VALUE.shadow="range" VALUE.params.min=0 VALUE.params.max=100
     //% VALUE.defl=60
     export function turn2(parameter: any) {
 
     }
     //% block="is [Flag]" blockType="boolean"
-    //% blockId="isTrue"
     //% Flag.shadow="boolean"
     export function turn3(parameter: any) {
         
     }
     //% block="say hello [STR]" blockType="command"
-    //% blockId="sayHello"
     //% STR.shadow="string" STR.defl="bar bar."
     export function turn4(parameter: any) {
         
@@ -51,6 +46,14 @@ namespace xxx {
 	//% block="set name [tt]" blockType="hat"
     //% tt.shadow="number" tt.defl=190
     export function turn6(parameter: any) {
-        
+        let buf = pins.createBuffer(2);
+        if (index == 0) {
+            buf[0] = 0x14;
+        }
+        if (index == 1) {
+            buf[0] = 0x15;
+        }
+        buf[1] = angle;
+        pins.i2cWriteBuffer(0x10, buf); 
     }
 }
