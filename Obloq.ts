@@ -51,6 +51,7 @@ namespace xxx {
     export function turn6(parameter: any) {
 		obj.a = "mm";
 		console.log("mmm", obj);
-        console.log("xxxxxxxmmmm")
+        console.log("xxxxxxxmmmm");
+        generator.transTextForVar('你好呀');
     }
 }
