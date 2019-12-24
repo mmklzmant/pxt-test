@@ -8,7 +8,10 @@ enum ALLPIN {
     //% block="down"
     Down
 }
-
+let obj = {
+	a: "12",
+	b: 23
+}
 let a = 1;
 //% color="#AA278D" iconWidth=50 iconHeight=40
 namespace xxx {
