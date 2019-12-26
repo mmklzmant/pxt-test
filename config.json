@@ -1,22 +1,50 @@
 {
-    "name": "Obloq",
-    "version": "1.0.3",
-	"board": ["microbit"],
-    "description": "Add Wi-Fi connectivity to micro:bit and start your IoT project in 5 minutes!",
-    "license": "MIT",
-    "files": [
-        "README.md",
-        "Obloq.ts",
-        "Obloq.cpp",
-		"_menu/microbit.json",
-        "_locales/zh-cn.json",
-		"icon.svg"
-    ],
-    "testFiles": [
-        "test.ts",
-        "mqttMoretest.ts",
-        "httpTest.ts"
-    ],
-    "public": true,
-    "installedVersion": "workspace:dee399dd-48f4-4833-bae7-879f736bfe46"
+	"name": "Obloq",
+	"description": "Add Wi-Fi connectivity to micro:bit and start your IoT project in 5 minutes!",
+	"auther": "dfrobot",
+	"email": "",
+	"license": "MIT",
+	"isTest": true,
+	"isBoard": false, 
+	"asset": {
+		"arduinoC": {
+			"dir": "arduinoC/",
+			"version": "0.0.1",
+			"platform": ["win", "mac", "web"],
+			"board": ["microbit"],
+			"main": "main.ts",
+			"files": [
+				"_menus/microbit.json",
+				"_locales/zh-cn.json",
+				"_images/icon.svg",
+				"libraries/DFRobot_DHT.cpp",
+				"libraries/DFRobot_DHT.h",
+				"libraries/microbit/DFRobot_DHT.cpp.o"
+			]
+		},
+		"micropython": {
+			"dir": "micropython/",
+			"version": "0.0.1",
+			"platform": ["win", "mac", "web"],
+			"board": ["microbit"],
+			"main": "main.ts",
+			"files": [
+				"_menus/microbit.json",
+				"_locales/zh-cn.json",
+				"_images/icon.svg"
+			]
+		},
+		"javascript": {
+			"dir": "javascript/",
+			"version": "0.0.1",
+			"platform": ["win", "mac", "web"],
+			"board": ["microbit"],
+			"main": "main.ts",
+			"files": [
+				"_menus/microbit.json",
+				"_locales/zh-cn.json",
+				"_images/icon.svg"
+			]
+		}
+	}
 }
