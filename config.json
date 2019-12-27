@@ -5,7 +5,8 @@
 	"email": "",
 	"license": "MIT",
 	"isTest": true,
-	"isBoard": false, 
+	"isBoard": false,
+	"id": "xxx",
 	"asset": {
 		"arduinoC": {
 			"dir": "arduinoC/",
