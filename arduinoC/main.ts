@@ -1,57 +1,74 @@
-enum ALLPIN {
-    //% block="left"
-    Left,
-    //% block="right"
-    Right,
-    //% block="up"
-    Up,
-    //% block="down"
-    Down
+enum BTN {
+    //% block="A"
+    A,
+    //% block="B"
+    B,
+    //% block="A+B"
+    AB
 }
-let obj = {
-	a: "12",
-	b: 23
+enum TYPE {
+    //% block="Integer"
+    INT
 }
-let a = 1;
 //% color="#AA278D" iconWidth=50 iconHeight=40
 namespace xxx {
-    //% block="say $word [xxx]" blockType="reporter"
-    //% xxx.shadow="dropdown" xxx.options="ALLPIN" xxx.defl="ALLPIN.Right"
-    export function say(parameter: any) {
-
+    //% block="when press [BUTTON]" blockType="hat"
+    //% board="microbit"
+    //% BUTTON.shadow="dropdown" BUTTON.options="BTN" BUTTON.defl="BTN.A"
+    export function buttonPress(parameter: any, block: any) {
+        let button: string = parameter.BUTTON.code.replace("+", "");
+		let name: string = 'button' + button + 'Callback';
+		generator.addEvent(name, "void", name, "", true);
+		generator.addSetup(block.id, `onEvent(ID_BUTTON_${button}, PRESS, ${name});`, false);
     }
-    //% block="say2 [xxx]" blockType="reporter"
-    //% xxx.shadow="dropdownRound" xxx.options="ALLPIN" xxx.defl="ALLPIN.Down"
-    export function say2(parameter: any) {
-
+    //% block="set pin [PIN] lightness [LIGHT]" blockType="command"
+    //% PIN.shadow="dropdownRound" PIN.options="PINA"
+    //% LIGHT.shadow="range" LIGHT.params.min=0 LIGHT.params.max=255 LIGHT.defl=255
+    export function setBrightness(parameter: any) {
+        let pin: string = parameter.PIN.code;
+		let brightness: string = parameter.LIGHT.code;
+		pin =  this.getPin(pin);
+		generator.addInclude('DFRobot_NeoPixel', '#include <DFRobot_NeoPixel.h>');
+		generator.addObject(`neoPixel_${pin};`, `DFRobot_NeoPixel`, `neoPixel_${pin};`);
+		generator.addSetup(`neoPixel_${pin}.begin`, `neoPixel_${pin}.begin(${pin}, 5, 255);`);
+		generator.addCode(`neoPixel_${pin}.setBrightness(${brightness});`);
     }
-    //% block="set tempo mmkl [VALUE]" blockType="hat"
-    //% VALUE.shadow="range" VALUE.params.min=0 VALUE.params.max=100
-    //% VALUE.defl=60
-    export function turn2(parameter: any) {
-
-    }
-    //% block="is [Flag]" blockType="boolean"
+    //% block="[PIN] pin is connected?" blockType="boolean"
+    //% PIN.shadow="dropdown" PIN.options="ALLPIN"
     //% Flag.shadow="boolean"
-    export function turn3(parameter: any) {
-        
+    export function isConnected(parameter: any) {
+        let pin: string = parameter.PIN.code.slice(parameter.PIN.code.length - 1);
+		generator.addCode([`isTouched(${pin})`, generator.ORDER_UNARY_POSTFIX]);
     }
-    //% block="say hello [STR]" blockType="command"
-    //% STR.shadow="string" STR.defl="bar bar."
-    export function turn4(parameter: any) {
-        
+    //% block="not [Flag]" blockType="boolean"
+    //% Flag.shadow="boolean"
+    export function notTrue(parameter: any) {
+        console.log("notTrue==", parameter);
+        let code: string = '!' + (parameter.Flag.code || 'false') + '';
+		generator.addCode([code, generator.ORDER_UNARY_PREFIX]);
     }
-    //% block="turn on [choice]" blockType="reporter"
-    //% choice.shadow="number" choice.defl=120
-    export function turn5(parameter: any) {
-        
+    //% block="read serial data int or float [READTYPE]" blockType="reporter"
+    //% READTYPE.shadow="dropdown" READTYPE.options="TYPE"
+    export function readserialIntfloat(parameter: any, block: any) {
+        let type: string = generator.getParameter(block).READTYPE.code;
+		generator.addSetupMainTop('Serial.begin', "Serial.begin(9600);", false);
+        if (type === "INT") {
+			generator.addCode([`Serial.parseInt()`, generator.ORDER_ATOMIC]);
+        } else {
+			generator.addCode([`Serial.parseFloat()`, generator.ORDER_ATOMIC]);
+		}
     }
-	//% block="set name [tt]" blockType="hat"
-    //% tt.shadow="number" tt.defl=190
-    export function turn6(parameter: any) {
-		obj.a = "mm";
-		console.log("mmm", obj);
-        console.log("xxxxxxxmmmm");
-        console.log("trans==mm", generator.transTextForVar('你好呀'));
+	//% block="set wireless channel [NUM]" blockType="command"
+    //% NUM.shadow="number" NUM.defl=7
+    export function setWirelessChannel(parameter: any) {
+        generator.addInclude('DFMicrobit_Radio', '#include <DFMicrobit_Radio.h>');
+		generator.addCode(`Radio.setGroup(${parameter.NUM.code});`);
+    }
+    //% block="print [STR]" blockType="command"
+    //% STR.shadow="string" STR.defl=hello
+    export function printStr(parameter: any) {
+        generator.addSetupMainTop('Serial.begin', "Serial.begin(9600);", false);
+        const code: string = `Serial.println(${parameter.STR.code})`;
+        generator.addCode(code);
     }
 }
