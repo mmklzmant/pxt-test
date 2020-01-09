@@ -25,9 +25,9 @@
 				"_menus/leonardo.json",
 				"_locales/zh-cn.json",
 				"_images/icon.svg",
-				"libraries/DFRobot_DHT.cpp",
-				"libraries/DFRobot_DHT.h",
-				"libraries/microbit/DFRobot_DHT.cpp.o"
+				"libraries/DFRobot_DHT/DFRobot_DHT.cpp",
+				"libraries/DFRobot_DHT/DFRobot_DHT.h",
+				"libraries/DFRobot_DHT/microbit/DFRobot_DHT.cpp.o"
 			]
 		},
 		"micropython": {
