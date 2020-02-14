@@ -1,56 +1,55 @@
 {
-	"name": {
-		"zh-cn": "Obloq通信模块",
-		"en": "Obloq"
-	},
-	"description": {
-		"zh-cn": "将Wi-Fi连接添加到micro：bit，并在5分钟内启动您的IoT项目！",
-		"en": "Add Wi-Fi connectivity to micro:bit and start your IoT project in 5 minutes!"
-	},
-	"auther": "dfrobot",
-	"email": "",
-	"license": "MIT",
-	"isTest": true,
-	"isBoard": false,
-	"id": "xxx",
-	"platform": ["win", "mac", "web"],
-	"asset": {
-		"arduinoC": {
-			"dir": "arduinoC/",
-			"version": "0.0.1",
-			"board": ["microbit", "leonardo", "arduino"],
-			"main": "main.ts",
-			"files": [
-				"_menus/microbit.json",
-				"_menus/leonardo.json",
-				"_locales/zh-cn.json",
-				"_images/icon.svg",
-				"libraries/DFRobot_DHT/DFRobot_DHT.cpp",
-				"libraries/DFRobot_DHT/DFRobot_DHT.h",
-				"libraries/DFRobot_DHT/microbit/DFRobot_DHT.cpp.o"
-			]
-		},
-		"micropython": {
-			"dir": "micropython/",
-			"version": "0.0.1",
-			"board": ["microbit"],
-			"main": "main.ts",
-			"files": [
-				"_menus/microbit.json",
-				"_locales/zh-cn.json",
-				"_images/icon.svg"
-			]
-		},
-		"javascript": {
-			"dir": "javascript/",
-			"version": "0.0.1",
-			"board": ["microbit"],
-			"main": "main.ts",
-			"files": [
-				"_menus/microbit.json",
-				"_locales/zh-cn.json",
-				"_images/icon.svg"
-			]
-		}
-	}
+  "name": {
+    "zh-cn": "OLED-12864 & 显示屏xx",
+    "en": "OLED-12864 screen"
+  },
+  "description": {
+    "zh-cn": "小体积显示屏，可用于智能穿戴设备的显示器",
+    "en": "I2C OLED-2864 Display Module"
+  },
+  "auther": "dfrobot",
+  "email": "1035868977@qq.com",
+  "license": "MIT",
+  "isBoard": false,
+  "id": "oled12864",
+  "platform": [
+    "win",
+    "mac",
+    "web"
+  ],
+  "asset": {
+    "javascript": {
+      "dir": "arduinoC/",
+      "version": "0.0.2",
+      "board": [
+        "microbit",
+        "esp32"
+      ],
+      "main": "oled12864.ts",
+      "files": [
+        "_locales/zh-cn.json",
+        "_images/icon.svg",
+        "_menus/microbit.json",
+        "oled12864.ts",
+        "libraries/libraries.zip"
+      ]
+    },
+    "arduinoC": {
+      "dir": "arduinoC/",
+      "version": "0.0.2",
+      "board": [
+        "microbit",
+        "esp32"
+      ],
+      "main": "oled12864.ts",
+      "files": [
+        "_images/icon.svg",
+        "_locales/zh-cn.json",
+        "_menus/leonardo.json",
+        "_menus/microbit.json",
+        "oled12864.ts",
+        "libraries/libraries.zip"
+      ]
+    }
+  }
 }
