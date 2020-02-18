@@ -48,7 +48,8 @@
         "_menus/leonardo.json",
         "_menus/microbit.json",
         "oled12864.ts",
-        "libraries/libraries.zip"
+        "libraries/libraries.zip",
+		"libraries/crt0.o"
       ]
     }
   }
