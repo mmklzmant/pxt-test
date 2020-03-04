@@ -18,22 +18,6 @@
     "web"
   ],
   "asset": {
-    "javascript": {
-      "dir": "arduinoC/",
-      "version": "0.0.2",
-      "board": [
-        "microbit",
-        "esp32"
-      ],
-      "main": "oled12864.ts",
-      "files": [
-        "_locales/zh-cn.json",
-        "_images/icon.svg",
-        "_menus/microbit.json",
-        "oled12864.ts",
-        "libraries/libraries.zip"
-      ]
-    },
     "arduinoC": {
       "dir": "arduinoC/",
       "version": "0.0.2",
@@ -41,16 +25,7 @@
         "microbit",
         "esp32"
       ],
-      "main": "oled12864.ts",
-      "files": [
-        "_images/icon.svg",
-        "_locales/zh-cn.json",
-        "_menus/leonardo.json",
-        "_menus/microbit.json",
-        "oled12864.ts",
-        "libraries/libraries.zip",
-		"libraries/crt0.o"
-      ]
+      "main": "oled12864.ts"
     }
   }
 }
