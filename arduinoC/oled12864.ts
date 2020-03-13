@@ -45,9 +45,15 @@ namespace oled12864 {
             Generator.addSetup(`button${button}.setPressedCallback`, `button${button}.setPressedCallback(${name});`);
         }
     }
-
+    export function validateStr_(str) {
+        let regx: RegExp = /^[a-z0-9]{1,8}\.[a-z0-9]{1,3}$/;
+        if (!regx.test(str)) {
+            return null;
+        }
+        return str;
+    }
     //% block="show [STR] on the [LINE] line" blockType="hat"
-    //% STR.shadow="string" STR.defl="hellomm"
+    //% STR.shadow="string" STR.defl="hellomm" STR.params.validateFunc="validateStr_"
     //% LINE.shadow="dropdown" LINE.options="LINE" LINE.defl="LINE.1"
     export function println(parameter: any, block: any) {
         let str = parameter.STR.code
@@ -57,9 +63,25 @@ namespace oled12864 {
         Generator.addSetup(`myoled.begin`, `myoled.begin();`);
         Generator.addCode(`myoled.setCursorLine(${line});\n\tmyoled.printLinemm(${str});`);
     }
-
+    //% block="设置颜色1 [COLOR]" blockType="command"
+    //% COLOR.shadow="colorSlider" COLOR.defl="#fc0"
+    export function setColor(parameter: any, block: any) {
+        
+    }
+    //% externalFunc
+    export function getColorsFunc_() {
+        return [
+            "#fff", "#f00", "#0f0", "#00f", "#ff0", "#0ff", "#f0f", "#000"
+        ]
+    }
+    //% block="设置颜色2 [COLOR]" blockType="command"
+    //% COLOR.shadow="colorPalette" COLOR.params.column=5
+    //% COLOR.params.colorsFunc="getColorsFunc_"
+    export function setColor2(parameter: any, block: any) {
+        
+    }
     //% block="show [STR] at x [X] y [Y]" blockType="command"
-    //% STR.shadow="string" STR.defl=hello
+    //% STR.shadow="note" STR.defl=60
     //% X.shadow="range" X.params.min=0 X.params.max=127 X.defl=0
     //% Y.shadow="range" Y.params.min=0 Y.params.max=63 Y.defl=0
     export function print(parameter: any, block: any) {
