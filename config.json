@@ -17,9 +17,10 @@
     "mac",
     "web"
   ],
+  "version": "0.1.0",
   "asset": {
-    "javascript": {
-      "dir": "arduinoC/",
+    "arduinoC": {
+      "dir": "arduinoC",
       "board": [
         "microbit",
         "esp32"
