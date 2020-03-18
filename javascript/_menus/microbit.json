@@ -1,0 +1,10 @@
+{
+	"ALLPIN": {
+		"menu":	[["P0", "P0"], ["P1", "P1"], ["P2", "P2"]],
+		"default_isConnected": "P2"
+	},
+	"BTNU": {
+		"menu":	[["P0", "P0"], ["P1", "P1"], ["P2", "P2"]],
+		"default_buttonPress_BUTTON": "P2"
+	}
+}

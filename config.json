@@ -25,15 +25,23 @@
         "microbit",
         "esp32"
       ],
-      "main": "oled12864.ts",
-	  "files": [
-		"_images/icon.svg",
-		"_locales/zh-cn.json",
-		"_menus/leonardo.json",
-		"_menus/microbit.json",
-		"_images/featured.png",
-		"libraries/libraries.zip"
-	  ]
+      "main": "oled12864.ts"
+    },
+	"micropython": {
+      "dir": "micropython",
+      "board": [
+        "microbit",
+        "esp32"
+      ],
+      "main": "oled12864.ts"
+    },
+	"javascript": {
+      "dir": "javascript",
+      "board": [
+        "microbit",
+        "esp32"
+      ],
+      "main": "oled12864.ts"
     }
   }
 }
