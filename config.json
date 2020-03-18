@@ -7,11 +7,11 @@
     "zh-cn": "小体积显示屏，可用于智能穿戴设备的显示器",
     "en": "I2C OLED-2864 Display Module"
   },
-  "auther": "DFrobot",
+  "authbr": "DFrobot",
   "email": "1035868977@qq.com",
   "license": "MIT",
   "isBoard": false,
-  "idx": "tt-oled12864",
+  "id": "tt-oled12864",
   "platform": [
     "win",
     "mac",
