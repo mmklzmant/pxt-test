@@ -45,6 +45,7 @@ namespace oled12864 {
             Generator.addSetup(`button${button}.setPressedCallback`, `button${button}.setPressedCallback(${name});`);
         }
     }
+    //% externalFunc
     export function validateStr_(str) {
         let regx: RegExp = /^[a-z0-9]{1,8}\.[a-z0-9]{1,3}$/;
         if (!regx.test(str)) {
@@ -52,7 +53,7 @@ namespace oled12864 {
         }
         return str;
     }
-    //% block="show [STR] on the [LINE] line" blockType="hat"
+    //% block="show [STR] on the [LINE] line" blockType="command"
     //% STR.shadow="string" STR.defl="hellomm" STR.params.validateFunc="validateStr_"
     //% LINE.shadow="dropdown" LINE.options="LINE" LINE.defl="LINE.1"
     export function println(parameter: any, block: any) {
@@ -63,8 +64,13 @@ namespace oled12864 {
         Generator.addSetup(`myoled.begin`, `myoled.begin();`);
         Generator.addCode(`myoled.setCursorLine(${line});\n\tmyoled.printLinemm(${str});`);
     }
+    //% block="设置角度 [VALUE]" blockType="command"
+    //% VALUE.shadow="angle" VALUE.params.edge=1
+    export function setAngle(parameter: any, block: any) {
+        
+    }
     //% block="设置颜色1 [COLOR]" blockType="command"
-    //% COLOR.shadow="colorSlider" COLOR.defl="#fc0"
+    //% COLOR.shadow="colorSlider" COLOR.defl="#f0f"
     export function setColor(parameter: any, block: any) {
         
     }
@@ -81,7 +87,7 @@ namespace oled12864 {
         
     }
     //% block="show [STR] at x [X] y [Y]" blockType="command"
-    //% STR.shadow="note" STR.defl=60
+    //% STR.shadow="note" STR.defl=247
     //% X.shadow="range" X.params.min=0 X.params.max=127 X.defl=0
     //% Y.shadow="range" Y.params.min=0 Y.params.max=63 Y.defl=0
     export function print(parameter: any, block: any) {
@@ -93,7 +99,26 @@ namespace oled12864 {
         Generator.addSetup(`myoled.begin`, `myoled.begin();`);
         Generator.addCode(`myoled.setCursor(${x}, ${y});\n\tmyoled.print(${str});`);
     }
+    //% block="---"
+    export function noteSep() {
 
+    }
+    //% extenralFunc
+    export function getBuiltinFunc_() {
+        return [
+            {matrix: "0101011111111110111000100"},
+            {matrix: "0000001010011100010000000"},
+            {matrix: "0010001110101010010000100"},
+            {matrix: "0010000100101010111000100"},
+            {matrix: "0010001000111110100000100"}
+        ]
+    }
+    //% block="设置点阵 [MT]" blockType="command"
+    //% MT.shadow="matrix" MT.params.row=5 MT.params.column=5
+    //% MT.params.builtinFunc="getBuiltinFunc_"
+    export function setMatrix(parameter: any, block: any) {
+        
+    }
     //% block="display QR code [STR] at x [X] y [Y] with size [SIZE]" blockType="command"
     //% STR.shadow="string" STR.defl=http://mindplus.cc
     //% X.shadow="range" X.params.min=0 X.params.max=127 X.defl=0
@@ -120,7 +145,7 @@ namespace oled12864 {
         Generator.addCode(`myoled.setLineWidth(${width});`);
     }
 
-    //% block="get the line width" blockType="reporter"
+    //% block="get the line width" blockType="reporter" checkbox=true
     export function getLineWidth(parameter: any, block: any) {
         Generator.addInclude('oled12864', '#include <oled12864.h>');
         Generator.addObject(`myoled`, `OLED_12864`, `myoled;`);
