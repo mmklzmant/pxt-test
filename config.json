@@ -19,14 +19,6 @@
   ],
   "version": "0.1.0",
   "asset": {
-    "arduinoC": {
-      "dir": "arduinoC/",
-      "board": [
-        "microbit",
-        "esp32"
-      ],
-      "main": "oled12864.ts"
-    },
 	"micropython": {
       "dir": "micropython/",
       "board": [
